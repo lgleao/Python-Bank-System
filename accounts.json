@@ -1,0 +1,57 @@
+[
+    {
+        "nome": "gustavo",
+        "senha": "Gus@123",
+        "saldo": 4349.79
+    },
+    {
+        "nome": "ana",
+        "senha": "Ana#847",
+        "saldo": 193.82
+    },
+    {
+        "nome": "carlos",
+        "senha": "Car!2026",
+        "saldo": 9850.14
+    },
+    {
+        "nome": "beatriz",
+        "senha": "Bia$998",
+        "saldo": 742.61
+    },
+    {
+        "nome": "lucas",
+        "senha": "Lk_5512",
+        "saldo": 15329.47
+    },
+    {
+        "nome": "mariana",
+        "senha": "Mari@777",
+        "saldo": 2816.9
+    },
+    {
+        "nome": "pedro",
+        "senha": "P3dro#11",
+        "saldo": 74.28
+    },
+    {
+        "nome": "juliana",
+        "senha": "Ju!9034",
+        "saldo": 6621.03
+    },
+    {
+        "nome": "rafael",
+        "senha": "Rf@2025",
+        "saldo": 12998.56
+    },
+    {
+        "nome": "camila",
+        "senha": "Cam1la$",
+        "saldo": 3875.19
+    },
+    {
+        "nome": "luiz",
+        "senha": "Lg081107",
+        "saldo": 480.0
+    }
+]
