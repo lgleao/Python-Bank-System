@@ -1,72 +1,67 @@
-# TO DO #
-# ├── depositar()
-# ├── sacar()
-# ├── transferir()
-# └── exibir_saldo()
-from conta import Conta
+from account import Account
 import json
 
-class Servicos:
-    def opcoes(self):
-        print("1. Transferir\n"
-        "2. Sacar\n"
-        "3. Depositar\n"
-        "4. Exibir saldo\n"
-        "5. Sair\n")
+class Services:
+    def options(self):
+        print("1. Transfer\n"
+        "2. Withdraw\n"
+        "3. Deposit\n"
+        "4. Show balance\n"
+        "5. Exit\n")
 
-    def transferir(self, send, receive, amount):
-        with open("contas.json", "r", encoding="utf-8") as arquivo:
-            contas = json.load(arquivo)
-        for i in range(len(contas)):
+    def transfer(self, send, receive, amount):
+        with open("accounts.json", "r", encoding="utf-8") as file:
+            accounts = json.load(file)
+        for i in range(len(accounts)):
             if send == receive:
-                print("Operação inválida. Usuário não pode efetuar depósito para si próprio.")
-            if contas[i]["nome"] == send:
-                contas[i]["saldo"] = contas[i]["saldo"] - amount
+                print("Invalid operation. User cannot make a deposit to themselves.")
+            if accounts[i]["name"] == send:
+                accounts[i]["balance"] = accounts[i]["balance"] - amount
 
-            if contas[i]["nome"] == receive:
-                contas[i]["saldo"] = contas[i]["saldo"] + amount
-        print("Operação efetuada com sucesso!\n")
+            if accounts[i]["name"] == receive:
+                accounts[i]["balance"] = accounts[i]["balance"] + amount
+        print("Operation completed successfully!\n")
         
-        with open("contas.json", "w", encoding="utf-8") as arquivo:
-            json.dump(contas, arquivo, indent=4, ensure_ascii=False)
+        with open("accounts.json", "w", encoding="utf-8") as file:
+            json.dump(accounts, file, indent=4, ensure_ascii=False)
 
-    def sacar(self, nome, amount):
-        with open("contas.json", "r", encoding="utf-8") as arquivo:
-            contas = json.load(arquivo)
+    def withdraw(self, name, amount):
+        with open("accounts.json", "r", encoding="utf-8") as file:
+            accounts = json.load(file)
         if amount > 0:
-            for i in range(len(contas)):
-                if contas[i]["nome"] == nome:
-                    contas[i]["saldo"] -= amount
-                    with open("contas.json", "w", encoding="utf-8") as arquivo:
-                        json.dump(contas, arquivo, indent=4, ensure_ascii=False)
+            for i in range(len(accounts)):
+                if accounts[i]["name"] == name:
+                    accounts[i]["balance"] -= amount
+                    with open("accounts.json", "w", encoding="utf-8") as file:
+                        json.dump(accounts, file, indent=4, ensure_ascii=False)
                     return
         else:
-            print("Quantia inválida. Tente outro valor.\n")
+            print("Invalid amount. Try another value.\n")
 
-    def depositar(self, nome, amount):
-        with open("contas.json", "r", encoding="utf-8") as arquivo:
-            contas = json.load(arquivo)
+    def deposit(self, name, amount):
+        with open("accounts.json", "r", encoding="utf-8") as file:
+            accounts = json.load(file)
         if amount > 0:
-            for i in range(len(contas)):
-                if contas[i]["nome"] == nome:
-                    contas[i]["saldo"] += amount
-                    with open("contas.json", "w", encoding="utf-8") as arquivo:
-                        json.dump(contas, arquivo, indent=4, ensure_ascii=False)
+            for i in range(len(accounts)):
+                if accounts[i]["name"] == name:
+                    accounts[i]["balance"] += amount
+                    with open("accounts.json", "w", encoding="utf-8") as file:
+                        json.dump(accounts, file, indent=4, ensure_ascii=False)
                     return
         else:
-            print("Quantia inválida. Tente outro valor.\n")
+            print("Invalid amount. Try another value.\n")
 
-    def saldo(self, nome):
-        with open("contas.json", "r", encoding="utf-8") as arquivo:
-            contas = json.load(arquivo)
+    def balance(self, name):
+        with open("accounts.json", "r", encoding="utf-8") as file:
+            accounts = json.load(file)
         
-        for i in range(len(contas)):
-            if contas[i]["nome"] == nome:
-                return print(f"Seu saldo atual é de: {contas[i]["saldo"]}")
+        for i in range(len(accounts)):
+            if accounts[i]["name"] == name:
+                return print(f"Your current balance is: {accounts[i]["balance"]}")
             
-        with open("contas.json", "w", encoding="utf-8") as arquivo:
-            json.dump(contas, arquivo, indent=4, ensure_ascii=False)
+        with open("accounts.json", "w", encoding="utf-8") as file:
+            json.dump(accounts, file, indent=4, ensure_ascii=False)
 
-    def sair(self):
-        print("Volte logo!")
+    def exit(self):
+        print("Come back soon!")
         quit()
