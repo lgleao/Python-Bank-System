@@ -1,57 +1,57 @@
 [
     {
-        "nome": "gustavo",
-        "senha": "Gus@123",
-        "saldo": 4349.79
+        "name": "gustavo",
+        "password": "Gus@123",
+        "balance": 4349.79
     },
     {
-        "nome": "ana",
-        "senha": "Ana#847",
-        "saldo": 193.82
+        "name": "ana",
+        "password": "Ana#847",
+        "balance": 193.82
     },
     {
-        "nome": "carlos",
-        "senha": "Car!2026",
-        "saldo": 9850.14
+        "name": "carlos",
+        "password": "Car!2026",
+        "balance": 9850.14
     },
     {
-        "nome": "beatriz",
-        "senha": "Bia$998",
-        "saldo": 742.61
+        "name": "beatriz",
+        "password": "Bia$998",
+        "balance": 742.61
     },
     {
-        "nome": "lucas",
-        "senha": "Lk_5512",
-        "saldo": 15329.47
+        "name": "lucas",
+        "password": "Lk_5512",
+        "balance": 15329.47
     },
     {
-        "nome": "mariana",
-        "senha": "Mari@777",
-        "saldo": 2816.9
+        "name": "mariana",
+        "password": "Mari@777",
+        "balance": 2816.9
     },
     {
-        "nome": "pedro",
-        "senha": "P3dro#11",
-        "saldo": 74.28
+        "name": "pedro",
+        "password": "P3dro#11",
+        "balance": 74.28
     },
     {
-        "nome": "juliana",
-        "senha": "Ju!9034",
-        "saldo": 6621.03
+        "name": "juliana",
+        "password": "Ju!9034",
+        "balance": 6621.03
     },
     {
-        "nome": "rafael",
-        "senha": "Rf@2025",
-        "saldo": 12998.56
+        "name": "rafael",
+        "password": "Rf@2025",
+        "balance": 12998.56
     },
     {
-        "nome": "camila",
-        "senha": "Cam1la$",
-        "saldo": 3875.19
+        "name": "camila",
+        "password": "Cam1la$",
+        "balance": 3875.19
     },
     {
-        "nome": "luiz",
-        "senha": "Lg081107",
-        "saldo": 480.0
+        "name": "luiz",
+        "password": "Lg081107",
+        "balance": 480.0
     }
 ]
