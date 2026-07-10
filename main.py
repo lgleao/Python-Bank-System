@@ -1,8 +1,8 @@
-from conta import Conta
-from servicos import Servicos
+from account import Account
+from services import Services
 import os
 
-#Func de limpeza
+#Clear function
 def clear():
     if os.name == "nt":
         os.system("cls")
@@ -11,54 +11,54 @@ def clear():
 clear()
 
 #Classes
-conta = Conta()
-servico = Servicos()
+account = Account()
+service = Services()
 
 while True:
-# - - - Entrar na conta - - - #
-    possui_conta = input("Já possui uma conta no banco? S/N\n").upper()
-    #Função de cadastro
-    if possui_conta == "N":
-        print("- - - CADASTRO - - -")
-        conta.criar_conta()
-    #Função de login
+# - - - Log into account - - - #
+    has_account = input("Do you already have a bank account? Y/N\n").upper()
+    #Registration function
+    if has_account == "N":
+        print("- - - REGISTRATION - - -")
+        account.create_account()
+    #Login function
     else:
         clear()
         print("- - - LOGIN - - -")
-        nome = input("Digite nome: ").lower()
-        if conta.login_conta(nome) == False:
-            print("Login ou senha inválido(a), tente novamente!\n")
+        name = input("Enter name: ").lower()
+        if account.login_account(name) == False:
+            print("Invalid login or password, try again!\n")
         else:
             clear()
             #Main loop
             while True:
-                servico.opcoes()
-                escolhas = int(input("Digite a opção desejada: "))
+                service.options()
+                choice = int(input("Enter desired option: "))
                 
-                #Transferir
-                if escolhas == 1:
+                #Transfer
+                if choice == 1:
                     clear()
-                    remetente = input("Digite o nome do remetente: ")
-                    quantia = float(input("Quanto quer transferir: "))
+                    sender = input("Enter the sender's name: ")
+                    amount = float(input("How much do you want to transfer: "))
                     clear()
-                    servico.transferir(nome,remetente,quantia)
-                #Sacar
-                elif escolhas == 2:
+                    service.transfer(name,sender,amount)
+                #Withdraw
+                elif choice == 2:
                     clear()
-                    saque = float(input("Quantidade a ser sacada: "))
-                    servico.sacar(nome,saque)
-                    print("Saque efetuado!\n")
-                #Depositar
-                elif escolhas == 3:
+                    withdrawal = float(input("Amount to withdraw: "))
+                    service.withdraw(name,withdrawal)
+                    print("Withdrawal completed!\n")
+                #Deposit
+                elif choice == 3:
                     clear()
-                    deposito = float(input("Quantidade a ser depositada: "))
-                    servico.depositar(nome, deposito)
-                    print("Quantia depositada!\n")
-                #Mostrar saldo
-                elif escolhas == 4:
+                    deposit = float(input("Amount to deposit: "))
+                    service.deposit(name, deposit)
+                    print("Amount deposited!\n")
+                #Show balance
+                elif choice == 4:
                     clear()
-                    servico.saldo(nome)
-                #Encerrar app
-                elif escolhas == 5:
+                    service.balance(name)
+                #Close app
+                elif choice == 5:
                     clear()
-                    servico.sair()
+                    service.exit()
