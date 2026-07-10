@@ -1,4 +1,4 @@
-# ---- VALIDAR LOGIN ---- #
+# ---- VALIDATE LOGIN ---- #
 import json
 import os
 
@@ -8,47 +8,41 @@ def clear():
     else:
         os.system("clear")
 
-class Conta:
-    def criar_conta(self):
-        novo_nome = input("Digite nome a ser cadastrado: ").lower()
-        nova_senha = input("Digite senha a ser cadastrada: ")
-        with open("contas.json", "r", encoding="utf-8") as arquivo:
-                conta = json.load(arquivo)
-        for i in range(len(conta)):
-            if novo_nome == conta[i]["nome"] and nova_senha == conta[i]["senha"]:
+class Account:
+    def create_account(self):
+        new_name = input("Enter name to register: ").lower()
+        new_password = input("Enter password to register: ")
+        with open("accounts.json", "r", encoding="utf-8") as file:
+                accounts = json.load(file)
+        for i in range(len(accounts)):
+            if new_name == accounts[i]["name"] and new_password == accounts[i]["password"]:
                 clear()
-                return print("Usuário já cadastrado!\n")
-        for i in range(len(conta)):
+                return print("User already registered!\n")
+        for i in range(len(accounts)):
             model = {
-                "nome": novo_nome,
-                "senha": nova_senha
+                "name": new_name,
+                "password": new_password
             }
 
-            with open("contas.json", "r", encoding="utf-8") as arquivo:
-                contas = json.load(arquivo)
+            with open("accounts.json", "r", encoding="utf-8") as file:
+                accounts = json.load(file)
 
-            contas.append(model)
+            accounts.append(model)
 
-            with open("contas.json", "w", encoding="utf-8") as arquivo:
-                json.dump(contas, arquivo, indent=4, ensure_ascii=False)
-            return print("Conta criada com sucesso!\n")
+            with open("accounts.json", "w", encoding="utf-8") as file:
+                json.dump(accounts, file, indent=4, ensure_ascii=False)
+            return print("Account created successfully!\n")
 
-    def valida_conta(self, name, password):
-            with open("contas.json", "r", encoding="utf-8") as arquivo:
-                conta = json.load(arquivo)
-                for i in range(len(conta)):
-                    if conta[i]["nome"] == name and conta[i]["senha"] == password:
+    def validate_account(self, name, password):
+            with open("accounts.json", "r", encoding="utf-8") as file:
+                accounts = json.load(file)
+                for i in range(len(accounts)):
+                    if accounts[i]["name"] == name and accounts[i]["password"] == password:
                         return True
     
-    def login_conta(self, nome):
-        senha = input("Digite senha: ")
-        if Conta.valida_conta(self, nome, senha) == True:
-            return True, print("- - - - - - - - - - - - - - -"), print(f"Seja bem-vindo, {nome}!\n")
+    def login_account(self, name):
+        password = input("Enter password: ")
+        if Account.validate_account(self, name, password) == True:
+            return True, print("- - - - - - - - - - - - - - -"), print(f"Welcome, {name}!\n")
         else: 
             return False
-
-# SINTAXE #      
-# conta = Conta()
-# conta.login_conta()
-# conta.criar_conta()
-# conta.valida_conta()
